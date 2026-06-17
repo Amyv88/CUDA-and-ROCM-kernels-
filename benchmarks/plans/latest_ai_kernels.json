@@ -1,0 +1,56 @@
+{
+  "name": "latest-ai-kernels",
+  "focus": "Track representative CUDA and ROCm benchmark cases for modern attention kernels.",
+  "cases": [
+    {
+      "name": "flash-attention-3",
+      "category": "attention",
+      "frameworks": [
+        "pytorch",
+        "triton"
+      ],
+      "devices": [
+        "nvidia-hopper"
+      ],
+      "metrics": [
+        "latency_ms",
+        "throughput_tflops",
+        "memory_gb_s"
+      ],
+      "notes": "Primary coverage for the latest FlashAttention release family."
+    },
+    {
+      "name": "paged-attention",
+      "category": "inference",
+      "frameworks": [
+        "pytorch"
+      ],
+      "devices": [
+        "nvidia-hopper",
+        "amd-mi300x"
+      ],
+      "metrics": [
+        "tokens_per_second",
+        "latency_ms"
+      ],
+      "notes": "Covers LLM serving style kernels."
+    },
+    {
+      "name": "grouped-gemm",
+      "category": "training",
+      "frameworks": [
+        "hipblaslt",
+        "cutlass"
+      ],
+      "devices": [
+        "nvidia-hopper",
+        "amd-mi300x"
+      ],
+      "metrics": [
+        "throughput_tflops",
+        "occupancy_pct"
+      ],
+      "notes": "Useful for fused MLP and MoE style workloads."
+    }
+  ]
+}
